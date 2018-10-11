@@ -1,12 +1,12 @@
+import merge from 'lodash.merge'
+
 export default function reducer(state, action) {
   switch(action.type) {
-    case 'INCREMENT':
-      return Object.assign({}, state, {
-        count: state.count + 1
-      })
-    case 'DECREMENT':
-      return Object.assign({}, state, {
-        count: state.count - 1
+    case 'SET_FIELD':
+      return merge({}, state, {
+        fields: {
+          [action.name]: action.value
+        }
       })
     default:
       return state
